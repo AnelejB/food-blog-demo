@@ -10,14 +10,14 @@ import './archive.css';
 
 import headerImg from '../images/general-header-image.jpg';
 
-const Poslastice = (props) => {
+const Supeicorbe = (props) => {
 
     const blogContent = props.data.allContentfulBlog
     const { currentPage, numPages } = props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
-    const prevPage = currentPage - 1 === 1 ? '/category/poslastice' : `/category/poslastice/${currentPage - 1}`
-    const nextPage = `/category/poslastice/${currentPage + 1}`
+    const prevPage = currentPage - 1 === 1 ? '/category/supe-i-corbe' : `/category/supe-i-corbe/${currentPage - 1}`
+    const nextPage = `/category/supe-i-corbe/${currentPage + 1}`
 
     return (
         <Layout>
@@ -83,15 +83,15 @@ const Poslastice = (props) => {
     )
 }
 
-export default Poslastice
+export default Supeicorbe
 
 export const pageQuery = graphql` 
- query PoslasticeQuery ($skip: Int!, $limit: Int!) {
+ query SupeicorbeQuery ($skip: Int!, $limit: Int!) {
    allContentfulBlog(
        sort: { fields: [createdAt], order: DESC }
        filter: {
        node_locale: {eq: "en-US",}
-       category: {elemMatch: {title: {eq: "Poslastice"}}}
+       category: {elemMatch: {title: {eq: "Supe i Corbe"}}}
     }
        skip: $skip
        limit: $limit

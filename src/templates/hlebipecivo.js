@@ -10,14 +10,14 @@ import './archive.css';
 
 import headerImg from '../images/general-header-image.jpg';
 
-const Poslastice = (props) => {
+const Hlebipecivo = (props) => {
 
     const blogContent = props.data.allContentfulBlog
     const { currentPage, numPages } = props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
-    const prevPage = currentPage - 1 === 1 ? '/category/poslastice' : `/category/poslastice/${currentPage - 1}`
-    const nextPage = `/category/poslastice/${currentPage + 1}`
+    const prevPage = currentPage - 1 === 1 ? '/category/hleb-i-pecivo' : `/category/hleb-i-pecivo/${currentPage - 1}`
+    const nextPage = `/category/hleb-i-pecivo/${currentPage + 1}`
 
     return (
         <Layout>
@@ -83,15 +83,15 @@ const Poslastice = (props) => {
     )
 }
 
-export default Poslastice
+export default Hlebipecivo
 
 export const pageQuery = graphql` 
- query PoslasticeQuery ($skip: Int!, $limit: Int!) {
+ query HlebipecivoQuery ($skip: Int!, $limit: Int!) {
    allContentfulBlog(
        sort: { fields: [createdAt], order: DESC }
        filter: {
        node_locale: {eq: "en-US",}
-       category: {elemMatch: {title: {eq: "Poslastice"}}}
+       category: {elemMatch: {title: {eq: "Hleb i Pecivo"}}}
     }
        skip: $skip
        limit: $limit

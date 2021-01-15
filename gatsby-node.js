@@ -237,12 +237,164 @@ const getPoslastice = makeRequest(graphql, `
   })
 });
 
+// Create hleb i pecivo category page, including pagination
+const getHlebipecivo = makeRequest(graphql, `
+{
+  allContentfulBlog (
+    sort: { fields: [createdAt], order: DESC }
+    filter: {
+      node_locale: {eq: "en-US"}
+      category: {elemMatch: {title: {eq: "Hleb i Pecivo"}}}
+    },)
+  {
+    edges {
+      node {
+        id
+        slug
+      }
+    }
+  }
+}
+`).then(result => {
+  const blogs = result.data.allContentfulBlog.edges
+  const blogsPerPage = 9
+  const numPages = Math.ceil(blogs.length / blogsPerPage)
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/category/hleb-i-pecivo` : `/category/hleb-i-pecivo/${i + 1}`,
+      component: path.resolve("./src/templates/hlebipecivo.js"),
+      context: {
+        limit: blogsPerPage,
+        skip: i * blogsPerPage,
+        numPages,
+        currentPage: i + 1
+      },
+    })
+  })
+});
+
+// Create slana jela category page, including pagination
+const getSlanajela = makeRequest(graphql, `
+{
+  allContentfulBlog (
+    sort: { fields: [createdAt], order: DESC }
+    filter: {
+      node_locale: {eq: "en-US"}
+      category: {elemMatch: {title: {eq: "Slana Jela"}}}
+    },)
+  {
+    edges {
+      node {
+        id
+        slug
+      }
+    }
+  }
+}
+`).then(result => {
+  const blogs = result.data.allContentfulBlog.edges
+  const blogsPerPage = 9
+  const numPages = Math.ceil(blogs.length / blogsPerPage)
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/category/slana-jela` : `/category/slana-jela/${i + 1}`,
+      component: path.resolve("./src/templates/slanajela.js"),
+      context: {
+        limit: blogsPerPage,
+        skip: i * blogsPerPage,
+        numPages,
+        currentPage: i + 1
+      },
+    })
+  })
+});
+
+// Create supe i corbe category page, including pagination
+const getSupeicorbe = makeRequest(graphql, `
+{
+  allContentfulBlog (
+    sort: { fields: [createdAt], order: DESC }
+    filter: {
+      node_locale: {eq: "en-US"}
+      category: {elemMatch: {title: {eq: "Supe i Corbe"}}}
+    },)
+  {
+    edges {
+      node {
+        id
+        slug
+      }
+    }
+  }
+}
+`).then(result => {
+  const blogs = result.data.allContentfulBlog.edges
+  const blogsPerPage = 9
+  const numPages = Math.ceil(blogs.length / blogsPerPage)
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/category/supe-i-corbe` : `/category/supe-i-corbe/${i + 1}`,
+      component: path.resolve("./src/templates/supeicorbe.js"),
+      context: {
+        limit: blogsPerPage,
+        skip: i * blogsPerPage,
+        numPages,
+        currentPage: i + 1
+      },
+    })
+  })
+});
+
+// Create prilozi i salate category page, including pagination
+const getPriloziisalate = makeRequest(graphql, `
+{
+  allContentfulBlog (
+    sort: { fields: [createdAt], order: DESC }
+    filter: {
+      node_locale: {eq: "en-US"}
+      category: {elemMatch: {title: {eq: "Prilozi i Salate"}}}
+    },)
+  {
+    edges {
+      node {
+        id
+        slug
+      }
+    }
+  }
+}
+`).then(result => {
+  const blogs = result.data.allContentfulBlog.edges
+  const blogsPerPage = 9
+  const numPages = Math.ceil(blogs.length / blogsPerPage)
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/category/prilozi-i-salate` : `/category/prilozi-i-salate/${i + 1}`,
+      component: path.resolve("./src/templates/priloziisalate.js"),
+      context: {
+        limit: blogsPerPage,
+        skip: i * blogsPerPage,
+        numPages,
+        currentPage: i + 1
+      },
+    })
+  })
+});
+
  return Promise.all([
    getBlog,
    getArchive,
    getBrzirucak,
    getPosnajela,
    getHranazabebe,
-   getPoslastice
+   getPoslastice,
+   getHlebipecivo,
+   getSlanajela,
+   getSupeicorbe,
+   getPriloziisalate
   ])
 };

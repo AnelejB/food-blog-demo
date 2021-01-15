@@ -33,6 +33,10 @@ const Posnajela = (props) => {
                     <Link to='/category/hrana-za-bebe' className={window.location.href.indexOf('category/hrana-za-bebe') > 0 ? 'archive__nav--link selected' : 'archive__nav--link'}>Hrana za Bebe</Link>
                     <Link to='/category/posna-jela' className={window.location.href.indexOf('category/posna-jela') > 0 ? 'archive__nav--link selected' : 'archive__nav--link'}>Posna Jela</Link>
                     <Link to='/category/poslastice' className={window.location.href.indexOf('category/poslastice') > 0 ? 'archive__nav--link selected' : 'archive__nav--link'}>Poslastice</Link>
+                    <Link to='/category/hleb-i-pecivo' className={window.location.href.indexOf('category/hleb-i-pecivo') > 0 ? 'archive__nav--link selected' : 'archive__nav--link'}>Hleb i Pecivo</Link>
+                    <Link to='/category/prilozi-i-salate' className={window.location.href.indexOf('category/prilozi-i-salate') > 0 ? 'archive__nav--link selected' : 'archive__nav--link'}>Prilozi i Salate</Link>
+                    <Link to='/category/slana-jela' className={window.location.href.indexOf('category/slana-jela') > 0 ? 'archive__nav--link selected' : 'archive__nav--link'}>Slana Jela</Link>
+                    <Link to='/category/supe-i-corbe' className={window.location.href.indexOf('category/supe-i-corbe') > 0 ? 'archive__nav--link selected' : 'archive__nav--link'}>Supe i Čorbe</Link>
                 </div>
             </div>
         </header>

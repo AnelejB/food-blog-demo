@@ -10,14 +10,14 @@ import './archive.css';
 
 import headerImg from '../images/general-header-image.jpg';
 
-const Poslastice = (props) => {
+const Priloziisalate = (props) => {
 
     const blogContent = props.data.allContentfulBlog
     const { currentPage, numPages } = props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
-    const prevPage = currentPage - 1 === 1 ? '/category/poslastice' : `/category/poslastice/${currentPage - 1}`
-    const nextPage = `/category/poslastice/${currentPage + 1}`
+    const prevPage = currentPage - 1 === 1 ? '/category/prilozi-i-salate' : `/category/prilozi-i-salate/${currentPage - 1}`
+    const nextPage = `/category/prilozi-i-salate/${currentPage + 1}`
 
     return (
         <Layout>
@@ -83,15 +83,15 @@ const Poslastice = (props) => {
     )
 }
 
-export default Poslastice
+export default Priloziisalate
 
 export const pageQuery = graphql` 
- query PoslasticeQuery ($skip: Int!, $limit: Int!) {
+ query PriloziisalateQuery ($skip: Int!, $limit: Int!) {
    allContentfulBlog(
        sort: { fields: [createdAt], order: DESC }
        filter: {
        node_locale: {eq: "en-US",}
-       category: {elemMatch: {title: {eq: "Poslastice"}}}
+       category: {elemMatch: {title: {eq: "Prilozi i Salate"}}}
     }
        skip: $skip
        limit: $limit
