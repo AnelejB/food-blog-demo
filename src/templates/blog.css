@@ -37,7 +37,7 @@
 }
 
 .blog__content {
-    max-width: 960px;
+    max-width: 700px;
     margin: 60px auto;
     padding: 0 10%
 }
@@ -76,7 +76,7 @@
 }
 
 .center {
-    width: 90%;
+    width: 100%;
     display: block;
     margin: 60px auto;
 }

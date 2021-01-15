@@ -3,6 +3,7 @@ import { Link, graphql, navigate } from 'gatsby';
 import { window } from 'browser-monads';
 import Layout from '../components/layout';
 import Nav from '../components/nav';
+import Footer from '../components/footer';
 import SEO from '../components/seo';
 import '../components/home/home.css';
 import './archive.css';
@@ -73,7 +74,7 @@ const Brzirucak = (props) => {
                 )}
             </div>
         </div>
-
+        <Footer />
         </Layout>
     )
 }
