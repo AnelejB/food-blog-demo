@@ -1,6 +1,14 @@
 import React from 'react'
 import { graphql, navigate, StaticQuery } from 'gatsby'
 import './home.css'
+import Helmet from 'react-helmet'
+import { siteMetadata } from '../../../gatsby-config'
+
+<Helmet>
+  <html lang="en" />
+  <title>{site.siteMetadata.title}</title>
+  <meta name="google-site-verification" content="qnT69VP4ryMoVLO06OnWgYtDKtfezfChQEsfX8KNY-A" />
+</Helmet>
 
 export default () => (
    <StaticQuery
