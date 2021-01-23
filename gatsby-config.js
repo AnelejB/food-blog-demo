@@ -5,11 +5,13 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
+    siteUrl: 'https://tamarinamastamozesvasta.netlify.app/',
     title: `Tamarina Masta Moze Svasta`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Kolekcija recepata.`,
     author: `Tamara`,
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     'gatsby-transformer-remark',
     {
